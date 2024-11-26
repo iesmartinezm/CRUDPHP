@@ -1,7 +1,7 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Conexión a la base de datos
-    $conn = new mysqli("localhost", "username", "password", "crudphp");
+    $conn = new mysqli("localhost", "root", "", "crudphp");
 
     // Verificar conexión
     if ($conn->connect_error) {
@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Insertar el nuevo usuario en la base de datos
-    $stmt = $conn->prepare("INSERT INTO users (username, email, hash_password) VALUES (?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)");
     $stmt->bind_param("sss", $username, $email, $hashed_password);
 
     if ($stmt->execute()) {
