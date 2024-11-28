@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['username'] = $user['username'];
         echo "<p>Inicio de sesión con exito. ¡Bienvenido, " . htmlspecialchars($user['username']) . "!</p>";
         echo "<p> Ya puedes acceder al tus productos </p>";
-        echo "<a href=../../BackEnd/Productos/CrudProductos>Pulsa Aquí</a>";
+        echo "<a href=../../BackEnd/CrudProductos>Pulsa Aquí</a>";
         // Aquí puedes redirigir al usuario a una página protegida
     } else {
         echo "<p>Correo electrónico o contraseña incorrectos.</p>";
