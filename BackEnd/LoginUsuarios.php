@@ -56,7 +56,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['username'] = $user['username']; // Guardar el nombre de usuario
 
         // Redirigir al usuario al CRUD de productos o a la página de bienvenida
-        
         header("Location: ../BackEnd/CrudProductos.php"); // Cambiar esta URL según sea necesario
         exit;
     } else {
