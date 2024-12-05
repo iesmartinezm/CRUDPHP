@@ -34,9 +34,13 @@ if ($result->num_rows > 0) {
         echo "<td>" . htmlspecialchars($row['price']) . "</td>";
         echo "<td>" . htmlspecialchars($row['stock']) . "</td>";
         echo "<td>
-                <a href='EditarProducto.php?id=" . htmlspecialchars($row['id']) . "'>Editar</a> | 
-                <a href='EliminarProducto.php?id=" . htmlspecialchars($row['id']) . "'>Eliminar</a>
-              </td>";
+        <a href='/CRUDPHP/FrontEnd/Crud/FormularioEditarProducto.php?id=" . urlencode($row['id']) .
+        "&name=" . urlencode($row['name']) .
+        "&description=" . urlencode($row['description']) .
+        "&price=" . urlencode($row['price']) .
+        "&stock=" . urlencode($row['stock']) . "'>Editar</a> | 
+        <a href='EliminarProducto.php?id=" . htmlspecialchars($row['id']) . "'>Eliminar</a>
+        </td>";
         echo "</tr>";
     }
 } else {
