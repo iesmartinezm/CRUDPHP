@@ -39,7 +39,7 @@ if ($result->num_rows > 0) {
         "&description=" . urlencode($row['description']) .
         "&price=" . urlencode($row['price']) .
         "&stock=" . urlencode($row['stock']) . "'>Editar</a> | 
-        <a href='EliminarProducto.php?id=" . htmlspecialchars($row['id']) . "'>Eliminar</a>
+        <a href='#' onclick='confirmDelete(" . $row['id'] . ")'>Eliminar</a>
         </td>";
         echo "</tr>";
     }

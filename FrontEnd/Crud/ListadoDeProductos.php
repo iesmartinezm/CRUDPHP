@@ -6,6 +6,17 @@
     <title>Listado de Productos</title>
     <link rel="stylesheet" href="CSSProductos.css">
 
+    <script type="text/javascript">
+    function confirmDelete(productId) {
+        // Pedir confirmación antes de eliminar
+        var result = confirm("¿Estás seguro de que quieres eliminar este producto?");
+        if (result) {
+            // Redirigir a EliminarProducto.php si el usuario confirma
+            window.location.href = '/CRUDPHP/BackEnd/EliminarProducto.php?id=' + productId;
+        }
+    }
+</script>
+
 </head>
 <body>
     
