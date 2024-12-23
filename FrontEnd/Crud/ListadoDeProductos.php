@@ -1,3 +1,4 @@
+<?php ob_start(); ?> <!-- Inicia el almacenamiento en búfer de salida -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -12,10 +13,10 @@
         var result = confirm("¿Estás seguro de que quieres eliminar este producto?");
         if (result) {
             // Redirigir a EliminarProducto.php si el usuario confirma
-            window.location.href = '/CRUDPHP/BackEnd/EliminarProducto.php?id=' + productId;
+            window.location.href = '/BackEnd/EliminarProducto.php?id=' + productId;
         }
     }
-</script>
+    </script>
 
 </head>
 <body>
@@ -25,6 +26,8 @@
         <?php include("../../BackEnd/ListarProductos.php"); ?>
     </div>
     <div class="actions">
-        <a href="../../BackEnd/logout.php">Cerrar sesión</a>
+        <a href="/BackEnd/logout.php">Cerrar sesión</a>
     </div>
 </body>
+</html>
+<?php ob_end_flush(); ?> <!-- Finaliza y envía el contenido al navegador -->

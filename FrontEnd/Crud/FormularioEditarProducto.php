@@ -22,11 +22,11 @@ $stock = isset($_GET['stock']) ? htmlspecialchars($_GET['stock']) : '';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Producto</title>
-    <link rel="stylesheet" href="/CRUDPHP/FrontEnd/Crud/CSSCrearProducto.css">
+    <link rel="stylesheet" href="/FrontEnd/Crud/CSSCrearProducto.css">
 </head>
 <body>
     <h1>Editar Producto</h1>
-    <form action="/CRUDPHP/BackEnd/EditarProducto.php" method="POST">
+    <form action="/BackEnd/EditarProducto.php" method="POST">
     <input type="hidden" id="id" name="id" value="<?= $id; ?>"> <!-- Este campo contiene el ID del producto -->
         
         <label for="name">Nombre:</label>
@@ -49,6 +49,6 @@ $stock = isset($_GET['stock']) ? htmlspecialchars($_GET['stock']) : '';
     </form>
 
     <br>
-    <a href="/CRUDPHP/FrontEnd/Crud/ListadoDeProductos.php" class="btn btn-secondary">Volver al listado</a>
+    <a href="/FrontEnd/Crud/ListadoDeProductos.php" class="btn btn-secondary">Volver al listado</a>
 </body>
 </html>

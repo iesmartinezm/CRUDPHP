@@ -3,7 +3,7 @@ session_start(); // Inicia la sesión
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Conexión a la base de datos
-    $conn = new mysqli("localhost", "root", "", "crudphp");
+    $conn = new mysqli("db", "root", "root", "crudphp");
 
     // Verificar conexión
     if ($conn->connect_error) {
@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['username'] = $user['username']; // Guardar el nombre de usuario
 
         // Redirigir al usuario al CRUD de productos o a la página de bienvenida
-        header("Location: ../BackEnd/CrudProductos.php"); // Cambiar esta URL según sea necesario
+        header("Location: /BackEnd/CrudProductos.php"); // Cambiar esta URL según sea necesario
         exit;
     } else {
         echo "<p>Correo electrónico o contraseña incorrectos.</p>";
@@ -70,57 +70,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "<p>Método no permitido.</p>";
 }
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

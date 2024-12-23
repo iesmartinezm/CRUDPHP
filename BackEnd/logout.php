@@ -10,7 +10,7 @@ session_destroy();
 
 
 // Redirigir al login
-header("Location: ../FrontEnd/FormularioLogin/FormularioLogin.html");
+header("Location: /FrontEnd/FormularioLogin/FormularioLogin.html");
 exit();
 ?>
 

@@ -1,0 +1,38 @@
+services:
+  # Contenedor para la aplicación PHP
+  web:
+    build: .
+    container_name: crudphp-web
+    ports:
+      - "80:80"
+    volumes:
+      - ./FrontEnd:/var/www/html/CRUDPHP/FrontEnd
+      - ./BackEnd:/var/www/html/CRUDPHP/BackEnd
+      - ./apache.conf:/etc/apache2/sites-enabled/000-default.conf
+    networks:
+      - crudphp-network
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASS: root
+      DB_NAME: crudphp
+
+  # Contenedor para la base de datos MySQL
+  db:
+    image: mysql:8.0
+    container_name: crudphp-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: crudphp
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./CreacionBD/crudphp.sql:/docker-entrypoint-initdb.d/crudphp.sql
+    networks:
+      - crudphp-network
+
+volumes:
+  db_data:
+
+networks:
+  crudphp-network:
+    driver: bridge

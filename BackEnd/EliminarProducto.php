@@ -3,12 +3,12 @@ session_start(); // Iniciar la sesión
 
 // Verificar si el usuario está autenticado
 if (!isset($_SESSION['user_id'])) {
-    header("Location:/CRUDPHP/FrontEnd/FormularioLogin/FormularioLogin.html");
+    header("Location:/FrontEnd/FormularioLogin/FormularioLogin.html");
     exit();
 }
 
 // Conexión a la base de datos
-$conn = new mysqli("localhost", "root", "", "crudphp");
+$conn = new mysqli("db", "root", "root", "crudphp");
 
 if ($conn->connect_error) {
     die("Error de conexión: " . $conn->connect_error);
@@ -27,7 +27,7 @@ if (isset($_GET['id'])) {
 
         if ($stmt->execute()) {
             // Redirigir al listado de productos después de eliminar
-            header("Location: /CRUDPHP/FrontEnd/Crud/ListadoDeProductos.php");
+            header("Location: /FrontEnd/Crud/ListadoDeProductos.php");
             exit();
         } else {
             echo "Error al eliminar el producto: " . $conn->error;

@@ -1,0 +1,18 @@
+# Activar el motor de reescritura
+RewriteEngine On
+
+# Establecer la base del proyecto para que las rutas relativas funcionen
+RewriteBase /CRUDPHP/
+
+# Redirigir a la página de login si no se está autenticado
+RewriteCond %{REQUEST_URI} !/FormularioLogin/FormularioLogin.html
+RewriteCond %{REQUEST_URI} !/FormularioRegistro/FormularioRegistro.html
+RewriteCond %{REQUEST_URI} !/BackEnd/LoginUsuarios.php
+RewriteCond %{REQUEST_URI} !/FrontEnd/Crud/*
+RewriteCond %{REQUEST_URI} !/backEnd/CrudProductos.php
+RewriteCond %{SESSION_USER_ID} ^$
+RewriteRule ^(.*)$ /CRUDPHP/FrontEnd/FormularioLogin/FormularioLogin.html [L]
+
+# Configurar el uso de URLs amigables
+RewriteRule ^login$ /CRUDPHP/FrontEnd/FormularioLogin/FormularioLogin.html [L]
+RewriteRule ^registro$ /CRUDPHP/FrontEnd/FormularioRegistro/FormularioRegistro.html [L]

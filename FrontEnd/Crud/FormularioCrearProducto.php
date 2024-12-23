@@ -4,7 +4,7 @@ session_start(); // Iniciar la sesión
 // Verificar si el usuario está autenticado
 if (!isset($_SESSION['user_id'])) {
     // Si no está autenticado, redirigir al login
-    header("Location: /CRUDPHP/FrontEnd/FormularioLogin/FormularioLogin.html");
+    header("Location: /FrontEnd/FormularioLogin/FormularioLogin.html");
     exit();
 }
 ?>
@@ -18,7 +18,7 @@ if (!isset($_SESSION['user_id'])) {
 </head>
 <body>
     <h1>Crear Producto</h1>
-    <form action="../../BackEnd/CrearProducto.php" method="POST">
+    <form action="/BackEnd/CrearProducto.php" method="POST">
         <label for="name">Nombre:</label>
         <input type="text" id="name" name="name" required><br>
 

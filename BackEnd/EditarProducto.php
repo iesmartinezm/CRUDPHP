@@ -3,12 +3,12 @@ session_start(); // Iniciar la sesión
 
 // Verificar si el usuario está autenticado
 if (!isset($_SESSION['user_id'])) {
-    header("Location:/CRUDPHP/FrontEnd/FormularioLogin/FormularioLogin.html");
+    header("Location:/FrontEnd/FormularioLogin/FormularioLogin.html");
     exit();
 }
 
 // Conexión a la base de datos
-$conn = new mysqli("localhost", "root", "", "crudphp");
+$conn = new mysqli("db", "root", "root", "crudphp");
 
 if ($conn->connect_error) {
     die("Error de conexión: " . $conn->connect_error);
@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($stmt->execute()) {
             // Redirigir al listado de productos
-            header("Location:/CRUDPHP/FrontEnd/Crud/ListadoDeProductos.php");
+            header("Location:/FrontEnd/Crud/ListadoDeProductos.php");
             exit();
         } else {
             echo "Error al actualizar el producto: " . $conn->error;
