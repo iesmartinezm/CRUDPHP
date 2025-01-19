@@ -22,12 +22,11 @@ Opción 1: Usando un servidor web local XAAMP
 
 - Coloca los archivos del proyecto en el directorio adecuado
    - Si usas XAMPP, coloca los archivos en `C:/xampp/htdocs/CRUDPHP/`.
-   - Si usas WAMP, coloca los archivos en `C:/wamp64/www/CRUDPHP/`.
 
 - Accede a la aplicación en el navegador
-   - Registro de usuario: `http://localhost/CRUDPHP/FrontEnd/FormularioRegistro/FormularioRegistro.html`.
-   - Inicio de sesión: `http://localhost/CRUDPHP/FrontEnd/FormularioLogin/FormularioLogin.html`.
-   - Gestión de productos: `http://localhost/CRUDPHP/FrontEnd/Crud/ListadoDeProductos.php`.
+   - Registro de usuario: `http://localhost/FrontEnd/FormularioRegistro/FormularioRegistro.html`.
+   - Inicio de sesión: `http://localhost/FrontEnd/FormularioLogin/FormularioLogin.html`.
+   - Gestión de productos: `http://localhost/FrontEnd/Crud/ListadoDeProductos.php`.
 
 
 Opcion 2 : Usando Docker
