@@ -1,4 +1,4 @@
 <?php
-header("Location: CRUDPHP/FrontEnd/FormularioRegistro/FormularioRegistro.html");
+header("Location: /FrontEnd/FormularioRegistro/FormularioRegistro.html");
 exit;
 ?>
