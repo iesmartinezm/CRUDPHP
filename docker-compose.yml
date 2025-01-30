@@ -6,6 +6,7 @@ services:
     ports:
       - "80:80"
     volumes:
+      - ./index.php:/var/www/html/CRUDPHP/index.php
       - ./FrontEnd:/var/www/html/CRUDPHP/FrontEnd
       - ./BackEnd:/var/www/html/CRUDPHP/BackEnd
       - ./apache.conf:/etc/apache2/sites-enabled/000-default.conf

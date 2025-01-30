@@ -5,6 +5,7 @@ FROM php:8.2-apache
 RUN docker-php-ext-install mysqli
 
 # Copiar los archivos del proyecto al contenedor
+COPY ./index.php /var/www/html/CRUDPHP/index.php
 COPY ./BackEnd /var/www/html/CRUDPHP/BackEnd/
 COPY ./FrontEnd /var/www/html/CRUDPHP/FrontEnd/
 
