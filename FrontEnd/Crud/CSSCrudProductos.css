@@ -21,7 +21,7 @@ a.btn {
     padding: 10px 20px;
     font-size: 16px;
     font-weight: bold;
-    color: white;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease, transform 0.2s ease;
@@ -52,6 +52,16 @@ a.btn {
 
 .btn-danger:hover {
     background-color: #c82333;
+    transform: scale(1.05);
+}
+
+
+.btn-warning {
+    background-color: #bb35dc;
+}
+
+.btn-warning:hover {
+    background-color: #9123c8;
     transform: scale(1.05);
 }
 

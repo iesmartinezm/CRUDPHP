@@ -24,11 +24,15 @@ if (!isset($_SESSION['user_id'])) {
     // Mostrar un enlace para listar productos
     echo "<a href='/FrontEnd/Crud/ListadoDeProductos.php' class='btn btn-primary'>Ver listado de productos</a>";
 
-    // Agregar un enlace para la funcionalidad futura de añadir un producto
+    // Agregar un enlace para añadir un producto
     echo "<a href='/FrontEnd/Crud/FormularioCrearProducto.php' class='btn btn-success'>Añadir producto</a>";
+
+    // Agregar un enlace para actualizar productos
+    echo "<a href='/FrontEnd/FormularioPerfil/ActualizacionPerfil.php' class='btn btn-warning'>Actualizar perfil</a>";
 
     // Botón para cerrar sesión
     echo "<a href='/BackEnd/logout.php' class='btn btn-danger'>Cerrar sesión</a>";
     ?>
 </body>
 </html>
+
