@@ -18,14 +18,28 @@ if ($conn->connect_error) {
     die("Error de conexión: " . $conn->connect_error);
 }
 
+// Obtener el término de búsqueda (desde GET o POST)
+$search = '';
+if (isset($_GET['search'])) {
+    $search = $_GET['search']; // Si se envió por GET
+} elseif (isset($_POST['search'])) {
+    $search = $_POST['search']; // Si se envió por POST
+}
+
 // Consulta para obtener los productos
-$sql = "SELECT id, name, description, price, stock FROM products";
-$result = $conn->query($sql);
+$sql = "SELECT id, name, description, price, stock FROM products WHERE name LIKE ?";
+$stmt = $conn->prepare($sql);
+$searchTerm = "%$search%";
+$stmt->bind_param("s", $searchTerm);
+$stmt->execute();
+$result = $stmt->get_result();
+
+// Mostrar el término de búsqueda (vulnerable a XSS)
+echo "<h1>Resultados de búsqueda para: " . $search . "</h1>";
 
 // Generar la tabla de productos
-echo "<h1>Listado de productos</h1>";
 echo "<table border='1' style='width: 100%; text-align: center;'>";
-echo "<thead><tr><th>Nombre</th><th>Descripción</th><th>Precio (EUROS) </th><th>Stock (Unidades)</th><th>Acciones</th></tr></thead>";
+echo "<thead><tr><th>Nombre</th><th>Descripción</th><th>Precio (EUROS)</th><th>Stock (Unidades)</th><th>Acciones</th></tr></thead>";
 echo "<tbody>";
 
 if ($result->num_rows > 0) {
@@ -53,6 +67,7 @@ echo "</tbody>";
 echo "</table>";
 
 // Cerrar la conexión
+$stmt->close();
 $conn->close();
 
 // Botón para volver al CRUD principal

@@ -40,5 +40,33 @@ Opcion 2 : Usando Docker
 - Accede a la aplicacion desde tu navegador usando localhost
 
 
+APLICACION ACTUAL SIN AÑADIR FORMULARIO DE BUSQUEDA
+
+Mi aplicacion actual no es vulnerable a Reflected XSS dado que los puntos de la aplicacion deonde se muestran datos ingresados por el usuario, como los formularios que ya estan implementados en la misma, utilizan la funcion htmlspecialchars() para verificar que las entradas se conviertan en sus equivalentes HTML, evitando asi que puedan ser interpretadas como codigo JavaScript. 
+
+
+NUEVO FORMULARIO DE BUSQUEDA
+
+Se ha agregado la funcionalidad de un formulario de busqueda dentro del listado de productos.
+Este formulario si que es vulnerable a Reflected XSS dado que no utiliza htmlspecial chars para convertir las consultas a HTML, por lo que un atacante podria obtener la cookie de sesion si inserta un script dentro de la URL
+
+Apartado 1 : Formulario con GET
+
+Esta seria la URL que veria una persona que hace una busqueda normal dentro del formulario : 
+
+http://localhost/FrontEnd/Crud/ListadoDeProductos.php?search=<termino_de_busqueda>
+
+Esta seria una forma de obtener la cookie de sesion que podria usar un atacante malicioso: 
+
+http://localhost/FrontEnd/Crud/ListadoDeProductos.php?search=<script>alert(document.cookie);</script>
+
+
+Apartado 2 : Formulario con POST
+
+Si introducimos en el formulario de busqueda con metodo POST el siguiente script
+
+<script>alert(document.cookie);</script>
+
+Nos mostrar una alerta con la cookie de sesion del usuario logueado
 
 

@@ -20,11 +20,31 @@
 
 </head>
 <body>
+
+    <!-- Formulario de búsqueda con GET -->
+    <h2>Buscar productos (GET)</h2>
+    <form action="/FrontEnd/Crud/ListadoDeProductos.php" method="GET">
+        <label for="search_get">Buscar producto:</label>
+        <input type="text" id="search_get" name="search" placeholder="Nombre del producto">
+        <button type="submit">Buscar (GET)</button>
+    </form>
+
+    <!-- Formulario de búsqueda con POST -->
+    <h2>Buscar productos (POST)</h2>
+    <form action="/FrontEnd/Crud/ListadoDeProductos.php" method="POST">
+        <label for="search_post">Buscar producto:</label>
+        <input type="text" id="search_post" name="search" placeholder="Nombre del producto">
+        <button type="submit">Buscar (POST)</button>
+    </form>
+
     
     <div class="table-container">
         <!-- Aquí se incluirá la tabla desde ListarProductos.php -->
         <?php include("../../BackEnd/ListarProductos.php"); ?>
     </div>
+
+
+
     <div class="actions">
         <a href="/BackEnd/logout.php">Cerrar sesión</a>
     </div>
