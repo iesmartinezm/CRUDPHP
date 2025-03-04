@@ -1,14 +1,13 @@
 <?php
-ob_start(); // Iniciar el almacenamiento en búfer de salida
+ob_start();
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
 // Verificar si el usuario está autenticado
 if (!isset($_SESSION['user_id'])) {
-    // Si no está autenticado, redirigir al login
     header("Location:/FrontEnd/FormularioLogin/FormularioLogin.html");
-    exit(); // Detener la ejecución del script para evitar que el código posterior se ejecute
+    exit();
 }
 
 // Conexión a la base de datos
@@ -21,10 +20,13 @@ if ($conn->connect_error) {
 // Obtener el término de búsqueda (desde GET o POST)
 $search = '';
 if (isset($_GET['search'])) {
-    $search = $_GET['search']; // Si se envió por GET
+    $search = $_GET['search'];
 } elseif (isset($_POST['search'])) {
-    $search = $_POST['search']; // Si se envió por POST
+    $search = $_POST['search'];
 }
+
+// Mostrar el término de búsqueda (vulnerable a XSS)
+echo "<h1>Resultados de búsqueda para: " . $search . "</h1>";
 
 // Consulta para obtener los productos
 $sql = "SELECT id, name, description, price, stock FROM products WHERE name LIKE ?";
@@ -33,9 +35,6 @@ $searchTerm = "%$search%";
 $stmt->bind_param("s", $searchTerm);
 $stmt->execute();
 $result = $stmt->get_result();
-
-// Mostrar el término de búsqueda (vulnerable a XSS)
-echo "<h1>Resultados de búsqueda para: " . $search . "</h1>";
 
 // Generar la tabla de productos
 echo "<table border='1' style='width: 100%; text-align: center;'>";
@@ -73,5 +72,5 @@ $conn->close();
 // Botón para volver al CRUD principal
 echo "<br><a href='/BackEnd/CrudProductos.php' class='btn btn-secondary'>Volver al menú principal</a>";
 
-ob_end_flush(); // Envía el contenido al navegador
+ob_end_flush();
 ?>
