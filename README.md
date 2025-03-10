@@ -67,9 +67,12 @@ http://localhost/FrontEnd/Crud/ListadoDeProductos.php?search=%3Cscript%3Edocumen
 
 Apartado 2 : Formulario con POST
 
-Si introducimos en el formulario de busqueda con metodo POST el siguiente script
+Dentro de la pagina con el listado de productos, hay un boton que lleva a un formulario malicioso.
+En el formulario, el usuario escribirá su email, o lo que quiera, y la cookie de sesion se guardara en un archivo de texto llamado cookies_robadas_post.txt.
 
-<script>alert(document.cookie);</script>
+El enlace al formulario malicioso es :
+
+http://localhost/FrontEnd/Crud/MaliciosoPost/malicioso.php
 
 Nos mostrar una alerta con la cookie de sesion del usuario logueado
 

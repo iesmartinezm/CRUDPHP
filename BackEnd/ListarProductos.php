@@ -21,8 +21,6 @@ if ($conn->connect_error) {
 $search = '';
 if (isset($_GET['search'])) {
     $search = $_GET['search'];
-} elseif (isset($_POST['search'])) {
-    $search = $_POST['search'];
 }
 
 // Mostrar el término de búsqueda (vulnerable a XSS)

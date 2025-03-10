@@ -94,34 +94,35 @@ table tbody tr td a:hover {
     background-color: #5a6268;
 }
 
-/* Ajustes para pantallas pequeñas */
-@media (max-width: 768px) {
-    table {
-        width: 100%;
-    }
+/* Botón de acceso al formulario malicioso */
+.btn-danger {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    background-color: #dc3545; /* Rojo */
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
-    table thead {
-        display: none;
-    }
+.btn-danger:hover {
+    background-color: #c82333; /* Rojo más oscuro */
+}
 
-    table tbody tr {
-        display: block;
-        margin-bottom: 15px;
-    }
+/* Estilos para alinear los botones en el div .actions */
+.actions {
+    display: flex;
+    justify-content: center;  /* Centra horizontalmente los botones */
+    align-items: center;      /* Alinea verticalmente */
+    gap: 15px;                /* Espacio entre los botones */
+    margin-top: 20px;         /* Espacio superior */
+}
 
-    table tbody tr td {
-        display: block;
-        text-align: right;
-        padding: 10px;
-        border-bottom: 1px solid #ddd;
-        position: relative;
-    }
-
-    table tbody tr td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 0;
-        text-align: left;
-        font-weight: bold;
-    }
+.actions a, .actions button {
+    display: inline-block;
 }

